@@ -2,8 +2,13 @@
 
 library(dplyr) # loading the package
 
+## Download the dataset
 
-## Assigning data frames after downloading folder and extracting files
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+download.file(fileURL, destfile = "./Data/UCI HAR Dataset.zip", method = "curl")
+unzip("./Data/UCI HAR Dataset.zip", exdir = "./Data/")
+
+## Assign data frames after downloading folder and extracting files
 
 features <- read.table("./Data/UCI HAR Dataset/features.txt", col.names = c("n", "functions"))
 activity <- read.table("./Data/UCI HAR Dataset/activity_labels.txt", col.names = c("code", "activity"))
